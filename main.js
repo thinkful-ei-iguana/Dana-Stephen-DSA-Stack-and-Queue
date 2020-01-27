@@ -49,33 +49,48 @@ function palindrome(s) {
   }
   return true;
 }
+function sortStack2(stack) {
+  let tempStack = new Stack();
+
+  let temp = stack.pop().data;
+
+  while (stack.top) {
+    if (
+      tempStack.top === null ||
+      temp < tempStack.top.data
+    ) {
+      tempStack.push(temp);
+      temp = stack.pop().data;
+    }
+    if (temp > tempStack.top.data) {
+      stack.push(tempStack.pop().data);
+    }
+  }
+  tempStack.push(temp);
+  return tempStack;
+}
 
 function sortStack(stack) {
   let tempStack = new Stack();
-  let high = stack.top.data;
 
-  if (high > tempStack.top) {
-    tempStack.push(high);
+  let temp = stack.pop().data;
+
+  while (stack.top) {
+    if (
+      tempStack.top === null ||
+      temp > tempStack.top.data
+    ) {
+      tempStack.push(temp);
+      temp = stack.pop().data;
+    }
+    if (temp < tempStack.top.data) {
+      stack.push(tempStack.pop().data);
+    }
   }
-  if ()
-  stack.push(tempStack.top);
-
-  // while (stack.top !== null) {
-  //   let high = stack.pop();
-  //   if() {
-  //     tempStack.push(high);
-  //     high = high.next.data;
-  //   } else {
-  //     tempStack.push(high);
-  //   }
-  // }
-
-  // while (tempStack.top !== null) {
-  //   stack.push(tempStack.top.data);
-  //   tempStack.pop;
-  // }
-
-  // display(stack);
+  tempStack.push(temp);
+  while (tempStack.top) {
+    stack.push(tempStack.pop().data);
+  }
 }
 
 // function one() {
@@ -104,6 +119,9 @@ function five() {
   stack.push(3);
   stack.push(5);
   sortStack(stack);
+  console.log(display(stack));
+  console.log(
+    display(sortStack2(stack))
+  );
 }
-
-;
+five();
