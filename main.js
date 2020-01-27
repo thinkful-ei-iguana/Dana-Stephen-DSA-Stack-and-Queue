@@ -1,4 +1,5 @@
 const Stack = require('./stack');
+const Queue = require('./Queue');
 const starTrek = new Stack();
 
 function peek(stack) {
@@ -112,16 +113,53 @@ function sortStack(stack) {
 
 // one();
 
-function five() {
-  const stack = new Stack();
-  stack.push(4);
-  stack.push(8);
-  stack.push(3);
-  stack.push(5);
-  sortStack(stack);
-  console.log(display(stack));
-  console.log(
-    display(sortStack2(stack))
-  );
+// function five() {
+//   const stack = new Stack();
+//   stack.push(4);
+//   stack.push(8);
+//   stack.push(3);
+//   stack.push(5);
+//   sortStack(stack);
+//   console.log(display(stack));
+//   console.log(
+//     display(sortStack2(stack))
+//   );
+// }
+// five();
+
+function queuePeek(queue) {
+  return queue.first.value;
 }
-five();
+
+function queueIsEmpty(queue) {
+  if (queue.first === null) {
+    return true;
+  }
+  return false;
+}
+
+function queueDisplay(queue) {
+  const arr = [];
+  if (queue.first === null) {
+    return;
+  } else {
+    let node = queue.first;
+    while (node !== null) {
+      arr.push(node.value);
+      node = node.next;
+    }
+  }
+  return arr.join(' < ');
+}
+
+function six() {
+  const starTrekQ = new Queue();
+  starTrekQ.enqueue('Kirk');
+  starTrekQ.enqueue('Spock');
+  starTrekQ.enqueue('Uhura');
+  starTrekQ.enqueue('Sulu');
+  starTrekQ.enqueue('Checkov');
+  console.log(queueDisplay(starTrekQ));
+}
+
+six();

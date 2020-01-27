@@ -28,10 +28,12 @@ class Queue {
     }
     const node = this.first;
     this.first = node.next;
-    
+
     if (node === this.last) {
       this.last = null;
     }
     return node.value;
   }
 }
+  
+module.exports = Queue;
