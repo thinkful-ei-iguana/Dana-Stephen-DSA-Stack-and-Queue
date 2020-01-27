@@ -54,22 +54,28 @@ function sortStack(stack) {
   let tempStack = new Stack();
   let high = stack.top.data;
 
-  while (stack.top !== null) {
-    let currData = stack.top.data;
-    if(high < currData) {
-      tempStack.push(high);
-      high = high.next.data;
-    } else {
-      tempStack.push(currData);
-    }
+  if (high > tempStack.top) {
+    tempStack.push(high);
   }
+  if ()
+  stack.push(tempStack.top);
 
-  while (tempStack.top !== null) {
-    stack.push(tempStack.top.data);
-    tempStack.pop;
-  }
+  // while (stack.top !== null) {
+  //   let high = stack.pop();
+  //   if() {
+  //     tempStack.push(high);
+  //     high = high.next.data;
+  //   } else {
+  //     tempStack.push(high);
+  //   }
+  // }
 
-  display(stack);
+  // while (tempStack.top !== null) {
+  //   stack.push(tempStack.top.data);
+  //   tempStack.pop;
+  // }
+
+  // display(stack);
 }
 
 // function one() {
@@ -100,4 +106,4 @@ function five() {
   sortStack(stack);
 }
 
-five();
+;
