@@ -159,6 +159,8 @@ function six() {
   starTrekQ.enqueue('Uhura');
   starTrekQ.enqueue('Sulu');
   starTrekQ.enqueue('Checkov');
+  starTrekQ.dequeue();
+  starTrekQ.dequeue();
   console.log(queueDisplay(starTrekQ));
 }
 
