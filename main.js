@@ -22,6 +22,34 @@ function display(stack) {
   return arr.join(' > ');
 }
 
+function palindrome(s) {
+  s = s
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9]/g, '');
+  let stack = new Stack();
+  let odd = Boolean(s.length % 2);
+  let i = 0;
+  for (
+    i;
+    i < Math.floor(s.length / 2);
+    i++
+  ) {
+    stack.push(s[i]);
+  }
+
+  if (odd) {
+    i++;
+  }
+
+  for (i; i < s.length; i++) {
+    let letter = stack.pop().data;
+    if (letter !== s[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
 function one() {
   starTrek.push('Kirk');
   starTrek.push('Spock');
@@ -30,6 +58,13 @@ function one() {
   // peek(starTrek);
   // console.log(isEmpty(starTrek));
   console.log(display(starTrek));
+  console.log(palindrome('Kirk'));
+  console.log(palindrome('taco cat'));
+  console.log(
+    palindrome(
+      'A man, a plan, a canal: Panama'
+    )
+  );
 }
 
 one();
