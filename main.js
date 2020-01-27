@@ -50,21 +50,54 @@ function palindrome(s) {
   return true;
 }
 
-function one() {
-  starTrek.push('Kirk');
-  starTrek.push('Spock');
-  starTrek.push('McCoy');
-  starTrek.push('Scotty');
-  // peek(starTrek);
-  // console.log(isEmpty(starTrek));
-  console.log(display(starTrek));
-  console.log(palindrome('Kirk'));
-  console.log(palindrome('taco cat'));
-  console.log(
-    palindrome(
-      'A man, a plan, a canal: Panama'
-    )
-  );
+function sortStack(stack) {
+  let tempStack = new Stack();
+  let high = stack.top.data;
+
+  while (stack.top !== null) {
+    let currData = stack.top.data;
+    if(high < currData) {
+      tempStack.push(high);
+      high = high.next.data;
+    } else {
+      tempStack.push(currData);
+    }
+  }
+
+  while (tempStack.top !== null) {
+    stack.push(tempStack.top.data);
+    tempStack.pop;
+  }
+
+  display(stack);
 }
 
-one();
+// function one() {
+//   starTrek.push('Kirk');
+//   starTrek.push('Spock');
+//   starTrek.push('McCoy');
+//   starTrek.push('Scotty');
+//   // peek(starTrek);
+//   // console.log(isEmpty(starTrek));
+//   console.log(display(starTrek));
+//   console.log(palindrome('Kirk'));
+//   console.log(palindrome('taco cat'));
+//   console.log(
+//     palindrome(
+//       'A man, a plan, a canal: Panama'
+//     )
+//   );
+// }
+
+// one();
+
+function five() {
+  const stack = new Stack();
+  stack.push(4);
+  stack.push(8);
+  stack.push(3);
+  stack.push(5);
+  sortStack(stack);
+}
+
+five();
